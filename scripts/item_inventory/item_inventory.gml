@@ -60,6 +60,19 @@ function sort_items() {
 	}
 }
 
+function use_item(_item, _character) {
+	// @desc Use an item from the inventory and apply its effects
+	// @param _item: The item selected by the player
+	// @param _character: The character to apply the item to
+	var _selected_item = global.inventory[_item];
+	if (_selected_item.item_type == item_kind.heal) {
+		obj_game.p_stats[_character][stats.hp] += _selected_item.hp_heal;
+		obj_game.p_stats[_character][stats.hp] = min(obj_game.p_stats[_character][stats.hp], obj_game.p_stats[_character][stats.maxhp]);
+		obj_game.p_stats[_character][stats.dp] += _selected_item.dp_heal;
+		obj_game.p_stats[_character][stats.dp] = min(obj_game.p_stats[_character][stats.dp], obj_game.p_stats[_character][stats.maxdp]);
+	}
+}
+
 // Sort function made in Python3
 //def sort(l):
 //	for i in range(0, len(l)):

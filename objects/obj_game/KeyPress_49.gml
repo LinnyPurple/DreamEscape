@@ -1,3 +1,3 @@
 /// @description Decrease HP
 
-if (p_hp[0] > 0) p_hp[0] -= 1;
+if (p_stats[0][stats.hp] > 0) p_stats[0][stats.hp] -= 1;

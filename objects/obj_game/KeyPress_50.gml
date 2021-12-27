@@ -1,4 +1,4 @@
 /// @description Increase HP
 
-if (p_hp[0] == p_maxhp[0]) p_maxhp[0] += 1;
-p_hp[0] += 1;
+if (p_stats[0][stats.hp] == p_stats[0][stats.maxhp]) p_stats[0][stats.maxhp]++;
+p_stats[0][stats.hp]++;

@@ -29,6 +29,8 @@ enum acc_items {
 function heal_item(_item) : item() constructor {
 	item_type = item_kind.heal;
 	item_subtype = _item;
+	hp_heal = 0;
+	dp_heal = 0;
 	switch(_item) {
 		case heal_items.h_dream_candy:
 			// Dream Candy

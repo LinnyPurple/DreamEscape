@@ -142,11 +142,11 @@ switch (attack_progress) {
 			attack_progress = 5;
 		} else {
 			var _action = global.turn_order[b_acting, 1];
-			if (_action[0] == 0) {
+			if (_action[0] == 0) { // Confirming a player is performing an action
 				// Choose player who is attacking first
-				player_action = _action[1];
-				response_selected = _action[2];
-				enemy_response_selected = _action[3];
+				player_action = _action[1]; // Which player (0 or 1)
+				response_selected = _action[2]; // FIGHT, SKILL, ITEM, FLEE (0 to 3)
+				enemy_response_selected = _action[3]; // Enemy to attack (0 to 2)
 				// If player/enemy is moving later but target is dead, change target
 				while (global.enemies[enemy_response_selected].enemy_status == status.dead) {
 					enemy_response_selected = irandom_range(0, array_length(global.enemies) - 1);

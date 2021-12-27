@@ -16,8 +16,8 @@ if (b_state != battle_state.battle_enemy_select) {
 	// Draw active player
 	text_box_slice(spr_textbox, player_x1, player_y1, player_x2, player_y2, 0);
 	draw_text(player_x1 + TILE_SIZE / 2, player_y1, obj_game.p_name[player_action]);
-	draw_text(player_x1 + TILE_SIZE / 2, player_y1 + TILE_SIZE / 2, "HP:" + string(obj_game.p_hp[player_action]));
-	draw_text(player_x1 + TILE_SIZE / 2, player_y1 + TILE_SIZE, "DP:" + string(obj_game.p_dp[player_action]));
+	draw_text(player_x1 + TILE_SIZE / 2, player_y1 + TILE_SIZE / 2, "HP:" + string(obj_game.p_stats[player_action][stats.hp]));
+	draw_text(player_x1 + TILE_SIZE / 2, player_y1 + TILE_SIZE, "DP:" + string(obj_game.p_stats[player_action][stats.dp]));
 }
 
 switch (b_state) {

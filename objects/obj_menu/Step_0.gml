@@ -28,6 +28,8 @@ var _item_vmin = 0;
 var _item_vmax = items_per_page - 1;
 var _item_selected_min = 0;
 var _item_selected_max = array_length(item_pages) - 1;
+var _item_using_min = 0;
+var _item_using_max = array_length(obj_game.p_name) - 1;
 // Make sure an item exists while not showing description of said item
 // Or scrolling through items to equip
 if (obj_player.state == player_state_item and inventory_num() != 0
@@ -36,13 +38,17 @@ or (obj_player.state == player_state_equip and equipping_item)) {
 	item_response_selected[0] += (k_right - k_left);
 	item_response_selected[1] += (k_down - k_up);
 // Scrolls through the USE, INFO, DROP section of the items
-} else if (item_selected and not instance_exists(obj_textbox)) {
+} else if (item_selected and not item_using and not instance_exists(obj_textbox)) {
 	item_selected_response_selected += (k_down - k_up);
+} else if (item_using and not instance_exists(obj_textbox)) {
+	item_using_response_selected += (k_down - k_up);
 }
 if (item_response_selected[0] > _item_hmax) item_response_selected[0] = _item_hmin;
 if (item_response_selected[0] < _item_hmin) item_response_selected[0] = _item_hmax;
 if (item_selected_response_selected > _item_selected_max) item_selected_response_selected = _item_selected_min;
 if (item_selected_response_selected < _item_selected_min) item_selected_response_selected = _item_selected_max;
+if (item_using_response_selected > _item_using_max) item_using_response_selected = _item_using_min;
+if (item_using_response_selected < _item_using_min) item_using_response_selected = _item_using_max;
 // Change _item_vmax if page isn't full
 var _limit = item_response_selected[0];
 for (var _i = _limit * items_per_page; _i < (_limit + 1) * items_per_page; _i++) {
@@ -54,6 +60,7 @@ for (var _i = _limit * items_per_page; _i < (_limit + 1) * items_per_page; _i++)
 }
 if (item_response_selected[1] > _item_vmax) item_response_selected[1] = _item_vmin;
 if (item_response_selected[1] < _item_vmin) item_response_selected[1] = _item_vmax;
+
 
 // EQUIP
 var _equip_hmin = 0; // Switching between the characters
@@ -115,7 +122,8 @@ if (obj_player.k_a) {
 		}
 	} else if (obj_player.state == player_state_item) {
 		// Make sure an item isn't selected
-		if (inventory_num() != 0 and not item_selected and not instance_exists(obj_textbox)) {
+		if (inventory_num() != 0 and not item_selected and not item_using
+		and not instance_exists(obj_textbox)) {
 			item_selected = true;
 			item_selected_response_selected = 0;
 		} else {
@@ -123,6 +131,14 @@ if (obj_player.k_a) {
 				case 0:
 					// USE
 					// Find a way to use the item here
+					if (item_selected and not item_using) item_using = true;
+					else if (item_using) {
+						var _selected_item = item_response_selected[0] * items_per_page + item_response_selected[1];
+						use_item(_selected_item, item_using_response_selected);
+						remove_item(_selected_item);
+						item_using = false;
+						item_selected = false;
+					}
 					break;
 				case 1:
 					// INFO
@@ -200,7 +216,8 @@ if (obj_player.k_b) {
 		switch (response_selected) {
 			case 0:
 				// ITEM
-				if (item_selected) item_selected = false;
+				if (item_using) item_using = false;
+				else if (item_selected) item_selected = false;
 				else obj_player.state = player_state_menu;
 				break;
 			case 1:
