@@ -415,6 +415,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8fdff993-577c-46b3-850d-2c3bdb5e7237","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Text",
     "path": "folders/Sprites/Text.yy",

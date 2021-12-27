@@ -115,10 +115,14 @@ if (obj_player.state != player_state_menu) {
 			var _text_dp = string_repeat(" ", 3 - string_length(string(obj_game.p_dp[stats_response_selected]))) + string(obj_game.p_dp[stats_response_selected]);
 			var _text_maxdp = string_repeat(" ", 3 - string_length(string(obj_game.p_maxdp[0]))) + string(obj_game.p_maxdp[stats_response_selected]);
 			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 0.5), "DP: " + _text_dp + "/" + _text_maxdp);
-			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 1), "ATK: " + string_repeat(" ", 5) + string(obj_game.p_atk[stats_response_selected]));
-			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 1.5), "DEF: " + string_repeat(" ", 5) + string(obj_game.p_def[stats_response_selected]));
-			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 2), "MAG: " + string_repeat(" ", 5) + string(obj_game.p_mag[stats_response_selected]));
-			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 2.5), "AGI: " + string_repeat(" ", 5) + string(obj_game.p_spd[stats_response_selected]));
+			var _p_atk = obj_game.p_atk[stats_response_selected] + obj_game.p_boost[stats_response_selected][stats.atk];
+			var _p_def = obj_game.p_def[stats_response_selected] + obj_game.p_boost[stats_response_selected][stats.def];
+			var _p_mag = obj_game.p_mag[stats_response_selected] + obj_game.p_boost[stats_response_selected][stats.mag];
+			var _p_spd = obj_game.p_spd[stats_response_selected] + obj_game.p_boost[stats_response_selected][stats.spd];
+			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 1), "ATK: " + string_repeat(" ", 5) + string(_p_atk));
+			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 1.5), "DEF: " + string_repeat(" ", 5) + string(_p_def));
+			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 2), "MAG: " + string_repeat(" ", 5) + string(_p_mag));
+			draw_text(TILE_SIZE / 2, TILE_SIZE * (_i + 2.5), "AGI: " + string_repeat(" ", 5) + string(_p_spd));
 			break;
 		case 4:
 			// QUIT

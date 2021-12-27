@@ -83,6 +83,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"2fbc1f50-5320-45fa-8a22-8db0f49f5646","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Animations",
     "path": "folders/Sprites/Animations.yy",

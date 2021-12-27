@@ -71,6 +71,7 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"ede86b81-c9f1-4930-ab88-9d2b608e0ff7","tags":[],"resourceType":"GMImageLayer",},
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8bab1858-8d8b-4b79-87c9-5a08483df771","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Enemy",
     "path": "folders/Sprites/Enemy.yy",

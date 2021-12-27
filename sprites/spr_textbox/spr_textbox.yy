@@ -71,6 +71,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9706b774-c578-4000-be05-35178fa07db4","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Text",
     "path": "folders/Sprites/Text.yy",

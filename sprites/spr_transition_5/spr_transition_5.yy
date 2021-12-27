@@ -119,6 +119,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"bed6572c-8312-4b07-885f-613c5cc09147","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Transitions",
     "path": "folders/Sprites/Transitions.yy",
