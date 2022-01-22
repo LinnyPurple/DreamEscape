@@ -31,6 +31,10 @@ function heal_item(_item) : item() constructor {
 	item_subtype = _item;
 	hp_heal = 0;
 	dp_heal = 0;
+	atk_increase = 0;
+	def_increase = 0;
+	mag_increase = 0;
+	spd_increase = 0;
 	switch(_item) {
 		case heal_items.h_dream_candy:
 			// Dream Candy
